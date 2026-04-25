@@ -1,79 +1,43 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Body */
 body {
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
-}
-
-/* Header */
-header {
-  background: #333;
-  color: white;
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header nav a {
-  color: white;
-  margin-left: 15px;
-  text-decoration: none;
-}
-
-header nav a:hover {
-  color: #00adb5;
-}
-
-/* Hero Section */
-.hero {
-  text-align: center;
-  padding: 50px;
-  background: #00adb5;
-  color: white;
-}
-
-.hero button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  border: none;
-  background: #fff;
-  color: #00adb5;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.hero button:hover {
-  background: #ddd;
-}
-
-/* Cards */
-.cards {
+  margin: 0;
+  height: 100vh;
   display: flex;
   justify-content: center;
-  gap: 20px;
-  padding: 40px;
+  align-items: center;
+  background: pink;
+  font-family: Arial;
 }
 
-.card {
-  background: white;
-  padding: 20px;
-  width: 200px;
-  border-radius: 10px;
+.container {
   text-align: center;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  padding: 15px;
-  background: #333;
+h1 {
+  font-size: 40px;
+  color: #fff;
+}
+
+.buttons {
+  margin-top: 30px;
+  position: relative;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#yes {
+  background: green;
   color: white;
+  margin-right: 20px;
+}
+
+#no {
+  background: red;
+  color: white;
+  position: absolute;
 }
