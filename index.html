@@ -1,22 +1,131 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Love Question ❤️</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Animation ❤️🌹</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      overflow: hidden;
+      background: radial-gradient(circle, #ff758f, #c9184a);
+      font-family: Arial, sans-serif;
+    }
+
+    /* CENTER */
+    .center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      z-index: 10;
+      width: 90%;
+    }
+
+    .big-love {
+      font-size: clamp(70px, 25vw, 140px);
+      animation: beat 1s infinite;
+    }
+
+    h1 {
+      margin-top: 15px;
+      font-size: clamp(24px, 8vw, 45px);
+      text-shadow: 2px 2px 10px #800f2f;
+    }
+
+    /* FLOATING ITEMS */
+    .item {
+      position: absolute;
+      bottom: -50px;
+      pointer-events: none;
+      animation: floatUp linear forwards;
+      opacity: 0.9;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg) scale(0.5);
+        opacity: 0;
+      }
+      10% { opacity: 1; }
+      100% {
+        transform: translateY(-110vh) rotate(360deg) scale(1.6);
+        opacity: 0;
+      }
+    }
+
+    @keyframes beat {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.25); }
+    }
+
+    /* 🎵 BUTTON */
+    .music-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 10px;
+      background: red;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 100;
+    }
+  </style>
 </head>
+
 <body>
 
-  <div class="container">
-    <h1>Do you love me? ❤️</h1>
+  <!-- 🎵 MUSIC -->
+  <audio id="music" loop>
+    <source src="./video/music.mp3" type="audio/mpeg">
+  </audio>
 
-    <div class="buttons">
-      <button id="yes">Yes 💖</button>
-      <button id="no">No 😅</button>
-    </div>
+  <!-- 🎵 BUTTON -->
+  <button class="music-btn" onclick="playMusic()">🎵 Play Music</button>
+
+  <!-- 💖 CENTER -->
+  <div class="center">
+    <div class="big-love">🌹❤️</div>
+    <h1>I Love You Forever 💖</h1>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    function playMusic() {
+      const music = document.getElementById("music");
+      music.play();
+    }
+
+    function createItem() {
+      const item = document.createElement("div");
+      item.className = "item";
+
+      const symbols = ["❤️", "💖", "🌹", "🌷", "💐"];
+      item.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+
+      item.style.left = Math.random() * 100 + "vw";
+      item.style.fontSize = (Math.random() * 30 + 20) + "px";
+      item.style.animationDuration = (Math.random() * 3 + 3) + "s";
+
+      document.body.appendChild(item);
+
+      setTimeout(() => item.remove(), 6000);
+    }
+
+    // 💖 MANY HEARTS + FLOWERS
+    setInterval(createItem, 40);
+  </script>
+
 </body>
 </html>
